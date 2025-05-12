@@ -1,0 +1,25 @@
+<?php
+require_once 'pokemon.php';
+
+class SportsPokemon extends Pokemon {
+    private $numero_patas;
+    private $tamaño;
+    private $frecuencia_Cardiaca;
+    
+    public function __construct($nombre, $peso, $numero_patas, $tamaño, $frecuencia_Cardiaca) {
+        parent::__construct($nombre, $peso);
+        $this->numero_patas = $numero_patas;
+        $this->tamaño = $tamaño;
+        $this->frecuencia_Cardiaca = $frecuencia_Cardiaca;
+    }
+
+    public function calcular_Velocidad() {
+        return $this->numero_patas * $this->tamaño * 3;
+    }
+
+    public function __toString() {
+        $velocidad = $this->calcular_Velocidad();
+        return "Soy SportPokemon {$this->nombre}, mi peso es de {$this->peso} kg, mi velocidad es de {$velocidad} km/h, tengo {$this->numero_patas} patas y mido {$this->tamaño} m, mi ritmo cardíaco es de {$this->frecuencia_Cardiaca} pulsaciones por minuto.";
+    }
+}
+?>
